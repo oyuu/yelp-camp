@@ -5,8 +5,6 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local');
-var Campground = require('./models/campground');
-var Comment = require('./models/comment');
 var User = require('./models/user');
 var seedDB = require('./seeds');
 
