@@ -21,12 +21,11 @@ router.post('/', function(req, res) {
     image: req.body.image,
     description: req.body.description
   };
-  Campground.create(newCampground, function(err, createdCampground) {
+  Campground.create(newCampground, function(err) {
     if (err) {
       console.log(err);
     } else {
       res.redirect('/campgrounds');
-      console.log(createdCampground.name);
     }
   });
 });
@@ -43,17 +42,14 @@ router.get('/:id', function(req, res) {
         console.log(err);
       } else {
         res.render('campgrounds/show', { campground: foundCampground });
-        console.log(req.user);
       }
     });
 });
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
-    console.log(req.isAuthenticated());
     return next();
   }
-  console.log(req.isAuthenticated());
   res.redirect('/login');
 }
 

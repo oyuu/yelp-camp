@@ -23,6 +23,9 @@ router.post('/', isLoggedIn, function(req, res) {
         if (err) {
           console.log(err);
         } else {
+          comment.author.id = req.user._id;
+          comment.author.username = req.user.username;
+          comment.save();
           campground.comments.push(comment);
           campground.save();
           res.redirect('/campgrounds/' + campground._id);
@@ -34,10 +37,8 @@ router.post('/', isLoggedIn, function(req, res) {
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
-    console.log(req.isAuthenticated());
     return next();
   }
-  console.log(req.isAuthenticated());
   res.redirect('/login');
 }
 

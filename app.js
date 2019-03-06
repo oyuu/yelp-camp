@@ -6,7 +6,7 @@ var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local');
 var User = require('./models/user');
-var seedDB = require('./seeds');
+// var seedDB = require('./seeds');
 
 var indexRoutes = require('./routes/index');
 var campgroundRoutes = require('./routes/campgrounds');
@@ -16,6 +16,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/yelpcamps', {
   useNewUrlParser: true
 });
 
+// seedDB(); //seed the database
+
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
@@ -24,8 +26,6 @@ app.use(
     extended: true
   })
 );
-
-seedDB();
 
 app.use(
   session({

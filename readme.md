@@ -1,5 +1,9 @@
 # YelpCamp
 
+[The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/)
+
+Created by [Colt Steele](https://www.udemy.com/user/coltsteele/)
+
 ## Initial Setup
 
 - Add Landing Page
