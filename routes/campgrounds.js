@@ -3,7 +3,7 @@ var Campground = require('../models/campground');
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
   Campground.find(function(err, allCampgrounds) {
     if (err) {
       console.log(err);
@@ -15,16 +15,18 @@ router.get('/', function(req, res) {
   });
 });
 
-router.post('/', function(req, res) {
+router.post('/', isLoggedIn, function(req, res) {
   var newCampground = {
     name: req.body.name,
     image: req.body.image,
-    description: req.body.description
+    description: req.body.description,
+    author: { id: req.user.id, username: req.user.username }
   };
-  Campground.create(newCampground, function(err) {
+  Campground.create(newCampground, function(err, createdCampground) {
     if (err) {
       console.log(err);
     } else {
+      console.log(createdCampground);
       res.redirect('/campgrounds');
     }
   });
