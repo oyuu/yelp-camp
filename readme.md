@@ -60,7 +60,7 @@ Each Campground has:
 - Add a seeds.js file
 - Run the seeds file every time the server starts
 
-## Add the Comment model!
+## Add the Comment model
 
 - Make our errors go away!
 - Display comments on campground show page
@@ -160,7 +160,7 @@ Each Campground has:
 - Hide/Show edit and delete buttons
 - Refactor Middleware
 
-## Adding in Flash!
+## Adding in Flash
 
 - Demo working version
 - Install and configure connect-flash
