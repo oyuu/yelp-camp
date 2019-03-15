@@ -53,6 +53,6 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-app.listen(5500, function() {
+app.listen(5500, 'localhost', function() {
   console.log('Server Started!!');
 });
