@@ -1,5 +1,10 @@
 <% include ../partials/header %>
 <div class="container">
+  <% if(success && success.length > 0){ %>
+    <div class="alert alert-success" role="alert">
+      <%= success %>
+    </div>
+  <% } %>
   <header class="jumbotron">
     <h1>Welcome to YelpCamp!</h1>
     <p>View our hand-picked campgrounds all over the world.</p>

@@ -6,6 +6,7 @@ var session = require('express-session');
 var passport = require('passport');
 var localStrategy = require('passport-local');
 var methodOverride = require('method-override');
+var flash = require('connect-flash');
 var User = require('./models/user');
 // var seedDB = require('./seeds');
 
@@ -38,6 +39,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -47,6 +49,15 @@ app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   next();
 });
+app.use(function(req, res, next) {
+  res.locals.error = req.flash('error');
+  next();
+});
+app.use(function(req, res, next) {
+  res.locals.success = req.flash('success');
+  next();
+});
+
 app.use(methodOverride('_method'));
 
 app.use('/', indexRoutes);

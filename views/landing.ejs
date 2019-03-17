@@ -1,9 +1,52 @@
-<% include ./partials/header %>
-<div class="container">
-  <header class="jumbotron">
-    <h1>Welcome to YelpCamp!</h1>
-    <a href="/campgrounds/new" class="btn btn-primary m-2">Add new campground</a>
-    <a href="/campgrounds" class="btn btn-primary m-2">View Campgrounds</a>
-  </header>
-</div>
-<% include ./partials/footer %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YelpCamp</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/styles/landing.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"
+      type="text/javascript"
+      async
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <% if(error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+      <% } %> 
+      <% if(success && success.length > 0){ %>
+        <div class="alert alert-success" role="alert">
+          <%= success %>
+        </div>
+      <% } %>
+    </div>
+
+    <div id="landing-header">
+      <h1>Welcome to YelpCamp!</h1>
+      <a href="/campgrounds" class="btn btn-lg btn-success"
+        >View All Campgrounds</a
+      >
+    </div>
+
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <% include partials/footer %>

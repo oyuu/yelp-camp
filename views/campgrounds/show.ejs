@@ -1,6 +1,11 @@
 <% include ../partials/header %>
 
 <div class="container">
+<% if(success && success.length > 0){ %>
+    <div class="alert alert-success" role="alert">
+      <%= success %>
+    </div>
+<% } %>
   <div class="row">
     <div class="col-md-3">
       <p class="lead">YelpCamp</p>
