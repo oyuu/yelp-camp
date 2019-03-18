@@ -20,6 +20,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
   var newCampground = {
     name: req.body.name,
+    price: req.body.price,
     image: req.body.image,
     description: req.body.description,
     author: { id: req.user.id, username: req.user.username }

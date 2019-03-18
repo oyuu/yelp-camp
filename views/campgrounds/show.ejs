@@ -1,6 +1,4 @@
 <% include ../partials/header %>
-
-<div class="container">
 <% if(success && success.length > 0){ %>
     <div class="alert alert-success" role="alert">
       <%= success %>
@@ -21,7 +19,7 @@
         <img src="<%= campground.image %>" alt="" class="img-fluid" />
 
         <div class="card-body">
-          <h4 class="float-right">RM50/night</h4>
+          <h4 class="float-right">RM<%= campground.price %>/night</h4>
           <h4 class="card-title"><a href=""><%= campground.name %></a></h4>
           <p class="card-text"><%= campground.description %></p>
           <p><em>Submitted by <%= campground.author.username %></em></p>
@@ -81,5 +79,4 @@
       </div>
     </div>
   </div>
-</div>
 <% include ../partials/footer %>
